@@ -12,9 +12,9 @@ Install good ctags:
     brew install ctags
     brew link ctags
 
-Install awk
+Install gawk
 
-    brew install awk
+    brew install gawk
 
 Clone to Packages
 

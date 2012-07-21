@@ -601,8 +601,8 @@ class AutocompleteAll(sublime_plugin.EventListener):
             results.sort()
             return results
 
-        count = 2000
-        cmd = "awk '/^"+prefix+"/i && uniq[$1] == 0 { print $1; uniq[$1] = 1; i++; if (i > " + str(count) + ") exit }' " + tags_path
+        count = 50
+        cmd = "gawk -v IGNORECASE=1 '/^"+prefix+"/ && uniq[$1] == 0 { print $1; uniq[$1] = 1; i++; if (i > " + str(count) + ") exit }' " + tags_path
 
         f=os.popen(cmd) # grep tags from project directory .tags file
         for i in f.readlines():
